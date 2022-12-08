@@ -1,1 +1,10 @@
-<h1>INDEX</h1>
+<h1>Search via Flickr Tag</h1>
+
+<%= render 'form' %>
+
+<% if @photos %>
+  <% @photos.each do |photo| %>
+    <p><%= photo&.title %></p>
+    <%= image_tag Flickr.url(photo) %>
+  <% end %>
+<% end %>

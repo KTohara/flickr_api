@@ -3,7 +3,6 @@ class StaticPagesController < ApplicationController
 
   def index
     flickr = Flickr.new
-
-    flickr.photos.search(user_id: params[:user_id]) if params[:user_id]
+    @photos = flickr.photos.search(tags: params[:tags], per_page: 20) if params[:tags]
   end
 end
